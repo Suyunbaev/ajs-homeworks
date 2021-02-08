@@ -1,6 +1,18 @@
-// TODO: write your code here
-import sum from './basic';
+export default class Character {
+    constructor(name, type){
+        const types = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
+        
+        if (name.length < 2 || name.length > 10 || typeof (name) !== 'string') {
+            throw new Error('Ошибка в имени');
+        }
 
-console.log('worked');
+        if (!types.includes(type)) {
+            throw new Error ('Ошибка в типе');
+        }
 
-console.log(sum([1, 2]));
+        this.name = name;
+        this.type = type;
+        this.level = 1;
+        this.health = 100;
+    }
+}
